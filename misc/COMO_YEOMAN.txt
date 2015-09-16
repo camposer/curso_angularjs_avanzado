@@ -23,7 +23,8 @@
 		"https-proxy":"http://USUARIO:CONTARSEÑA@proxy.company.com:8080"
 
 		- Proxy Git
-		
+		git config --global http.proxy http://USUARIO:CONTARSEÑA@proxy.company.com:8080
+		git config --global https.proxy http://USUARIO:CONTARSEÑA@proxy.company.com:8080
 
 	5.1.- Abrir la ConEmu como Administrador
 		- Presionar shift + clic derecho sobre el icono. Ejecutar como Administrador
