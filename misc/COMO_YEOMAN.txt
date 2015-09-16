@@ -13,6 +13,10 @@
 	C:\> npm --version
 
 5.- Instalar paquetes:
+	5.0.- Configurar proxy (si aplicase)
+		npm config set proxy http://USUARIO:CONTARSEÑA@proxy.company.com:8080
+		npm config set https-proxy http://USUARIO:CONTRASEÑA@proxy.company.com:8080
+
 	5.1.- Abrir la ConEmu como Administrador
 		- Presionar shift + clic derecho sobre el icono. Ejecutar como Administrador
 	5.2.- Ejecutar:
@@ -26,7 +30,7 @@
 
 
 6.- Crear proyecto (para estos pasos no es necesario ser administrador)
-	6.1.- Ejecutar:
+	6.1.- Ejecutar (enter-enter):
 		C:\> mkdir proyecto & cd proyecto & yo angular-fullstack
 	6.2.- Iniciar
 		C:\proyecto> npm install & bower install
