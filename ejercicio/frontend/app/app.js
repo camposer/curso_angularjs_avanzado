@@ -10,7 +10,7 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/productos', {
 	    templateUrl: 'view/producto.html',
-	    controller: 'ProductoController'
+	    controller: 'ProductoController as ctrl'
   	});
 
   	$routeProvider.otherwise({redirectTo: '/productos'});

@@ -1,18 +1,18 @@
 'use strict';
 
-// (function() {
+(function() {
 	angular
 		.module('myApp')
-		.service('ProductoService', [ '$http', '$scope', 'BASE_URL', ProductoService ]);
+		.service('ProductoService', [ '$http', 'BASE_URL', ProductoService ]);
 
-	function ProductoService($http, $scope, BASE_URL) {
-		this.obtenerProductos = function() {
+	function ProductoService($http, BASE_URL) {
+		this.obtenerProductos = function(productos) {
 			$http
 				.get(BASE_URL + '/productos')
 				.success(function(resp) {
-					$scope.productos = resp;
+					for (var i in resp)
+						productos[i] = resp[i];
 				});
 		};
 	}
-
-// })();
+})();
