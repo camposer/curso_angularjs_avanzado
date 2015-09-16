@@ -16,21 +16,21 @@
 	5.1.- Abrir la ConEmu como Administrador
 		- Presionar shift + clic derecho sobre el icono. Ejecutar como Administrador
 	5.2.- Ejecutar:
-		C:\> npm install -g yo bower grunt-cli generator-angular
+		C:\> npm install -g yo grunt-cli bower generator-angular-fullstack
 
 	Donde:
 		- yo. Yeoman
 		- bower. Gestor de dependencias para el front
 		- grunt-cli. Gestión de la configuración (test, serve)
-		- generator-angular. Generador de proyectos angular de Yeoman
+		- generator-angular-fullstack. Generador de proyectos angular de Yeoman
 
 
 6.- Crear proyecto (para estos pasos no es necesario ser administrador)
 	6.1.- Ejecutar:
-		C:\> mkdir proyecto & cd proyecto & yo angular
+		C:\> mkdir proyecto & cd proyecto & yo angular-fullstack
 	6.2.- Iniciar
 		C:\proyecto> npm install & bower install
-		C:\proyecto> grunt serve
+		C:\proyecto> node app
 
 
 
