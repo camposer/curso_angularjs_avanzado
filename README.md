@@ -61,4 +61,11 @@
 	- http://karma-runner.github.io/0.12/index.html
 - Yeoman
 	- http://yeoman.io/
+- Diseño de APIs Rest
+	- http://blog.2partsmagic.com/restful-uri-design/
+- Herramientas para probar API Rest
+	- Chrome
+		- https://chrome.google.com/webstore/detail/advanced-rest-client/
+	- Firefox
+		- https://addons.mozilla.org/es/firefox/addon/restclient/
 
