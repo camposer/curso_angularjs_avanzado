@@ -14,22 +14,20 @@
 
 5.- Instalar paquetes:
 	5.0.- Configurar proxy (si aplicase)
-		- Proxy NPM
-		npm config set proxy http://USUARIO:CONTARSEÑA@proxy.company.com:8080
-		npm config set https-proxy http://USUARIO:CONTRASEÑA@proxy.company.com:8080
+		- Configurar Git para acceso http en lugar de SSH
+		git config --global url.https://github.com/.insteadOf git://github.com/
 
-		- Proxy Bower (añadir al .bowerrc). Ojo con las comas es un JSON
-		"proxy":"http://USUARIO:CONTARSEÑA@proxy.company.com:8080",
-		"https-proxy":"http://USUARIO:CONTARSEÑA@proxy.company.com:8080"
-
-		- Proxy Git
-		git config --global http.proxy http://USUARIO:CONTARSEÑA@proxy.company.com:8080
-		git config --global https.proxy http://USUARIO:CONTARSEÑA@proxy.company.com:8080
+		- En Linux y Windows (añadir al ~/.bashrc)
+		export http_proxy="http://USUARIO:CONTARSEÑA@proxy.company.com:8080"
+		export https_proxy="http://USUARIO:CONTARSEÑA@proxy.company.com:8080"
 
 	5.1.- Abrir la ConEmu como Administrador
 		- Presionar shift + clic derecho sobre el icono. Ejecutar como Administrador
 	5.2.- Ejecutar:
 		C:\> npm install -g yo grunt-cli bower generator-angular-fullstack
+		
+		- No Mongo
+		- No SASS, sí CSS
 
 	Donde:
 		- yo. Yeoman
@@ -43,7 +41,7 @@
 		C:\> mkdir proyecto & cd proyecto & yo angular-fullstack
 	6.2.- Iniciar
 		C:\proyecto> npm install & bower install
-		C:\proyecto> node app
+		C:\proyecto> grunt serve
 
 
 
