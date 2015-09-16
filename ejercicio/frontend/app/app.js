@@ -8,5 +8,10 @@ angular.module('myApp', [
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+	$routeProvider.when('/productos', {
+	    templateUrl: 'view/producto.html',
+	    controller: 'ProductoController'
+  	});
+
+  	$routeProvider.otherwise({redirectTo: '/productos'});
 }]);
