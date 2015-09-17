@@ -13,4 +13,5 @@ Ejercicio
 
 3.- Implementar una animación para que cada vez que se agregue un elemento nuevo a la lista se muestre "lentamente". Ver ejemplo de ng-repeat en documentación.
 
-4.- 
+4.- Implementar las pruebas unitarias de agregar y eliminar de ProductoController. 
+NOTA: Recuerde que para ejecutar: `npm test`
