@@ -6,13 +6,14 @@
 		.factory('MensajeFactory', [ MensajeFactory ]);
 
 	function MensajeFactory() {
-		this.createMensaje = function() {
-			return {
-				success: [],
-				error: []
-			};
-		};
-
+        return {
+            createMensaje: function() {
+                return {
+                    success: [],
+                    error: []
+                };            	
+            }
+        };
 	}
 })();
 

@@ -1,17 +1,14 @@
 'use strict';
 
 angular.module('myApp')
-.controller('ProductoController', [ '$scope', 'ProductoService', function($scope, productoService) {
+.controller('ProductoController', [ '$scope', 'ProductoService', 'MensajeFactory', function($scope, productoService, MensajeFactory) {
 	var self = this;
 
 	self.productos = [];
 	self.producto = {};
 
 	$scope.guardar = function(isValid) {
-		self.mensajes = {
-			success: [],
-			error: []
-		};
+		self.mensajes = MensajeFactory.createMensaje();
 
 		var error = function() {
 			self.mensajes.error.push('Error al agregar producto');
