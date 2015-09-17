@@ -9,5 +9,10 @@ angular
 	    controller: 'ProductoController as ctrl'
   	});
 
+	$routeProvider.when('/productos/eliminar/:id', {
+	    templateUrl: 'view/producto.html',
+	    controller: 'ProductoController as ctrl'
+  	});
+
   	$routeProvider.otherwise({redirectTo: '/productos'});
 }]);

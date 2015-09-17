@@ -58,8 +58,9 @@
   		<td>{{p.id}}</td>
   		<td>{{p.nombre}}</td>
   		<td>{{p.precio}}</td>
-  		<td><a href="#">mostrar</a></td>
-  		<td><a href="#">eliminar</a></td>
+  		<td><a href ng-click="ctrl.mostrar(p)">mostrar</a></td>
+      <td><a href ng-click="ctrl.eliminar(p.id)"
+        onclick="return confirm('Seguro?')">eliminar</a></td>
   	</tr>
   </tbody>
 </table>

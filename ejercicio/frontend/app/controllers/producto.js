@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-.controller('ProductoController', [ '$scope', 'ProductoService', 'MensajeFactory', function($scope, productoService, MensajeFactory) {
+.controller('ProductoController', [ '$scope', '$routeParams', 'ProductoService', 'MensajeFactory', function($scope, $routeParams, productoService, MensajeFactory) {
 	var self = this;
 
 	self.productos = [];
@@ -11,24 +11,49 @@ angular.module('myApp')
 		self.mensajes = MensajeFactory.createMensaje();
 
 		var error = function() {
-			self.mensajes.error.push('Error al agregar producto');
+			self.mensajes.error.push('Error al guardar producto');
 		};
 		var success = function() {
 			cargarProductos();
-			self.mensajes.success.push("Agregado satisfactoriamente");
+			self.mensajes.success.push("Guardado satisfactoriamente");
 		};
 
 		if (isValid) {
-			productoService.agregarProducto(self.producto).then(success, error);
+			if (self.producto.id)
+				productoService.modificarProducto(self.producto).then(success, error);
+			else
+				productoService.agregarProducto(self.producto).then(success, error);
 		} else {
 			self.mensajes.error.push("Rellene campos obligatorios");
 		}
+	};
+
+	self.eliminar = function(id) {
+		self.mensajes = MensajeFactory.createMensaje();
+
+		var success = function() {
+			cargarProductos();
+			self.mensajes.success.push("Producto eliminado satisfactoriamente");
+		};
+
+		var error = function() {
+			self.mensajes.error.push("Ha ocurrido un error al eliminado el producto");
+		};
+
+		productoService
+			.eliminarProducto(id)
+			.then(success, error);
+	};
+
+	self.mostrar = function(p) {
+		self.producto = angular.copy(p);
 	};
 
 	var cargarProductos = function() {
 		productoService
 			.obtenerProductos()
 			.then(function(resp) {
+				self.productos = [];
 				for (var i in resp.data)
 					self.productos[i] = resp.data[i];
 			});
@@ -36,6 +61,17 @@ angular.module('myApp')
 	};
 
 
-	cargarProductos();
+	var eliminarProducto = function() {
+		if ($routeParams.id) {
+			self.eliminar($routeParams.id);
+		}
+	};
+
+	var init = function() {
+		cargarProductos();
+		eliminarProducto();
+	};
+
+	init();
 		
 }]);
