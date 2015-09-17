@@ -13,6 +13,7 @@ module.exports = function(config){
       'app/factories/*.js',
       'app/controllers/*.js',
       'app/services/*.js',
+      'app/directives/*.js'
     ],
 
     autoWatch : true,

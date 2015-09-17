@@ -8,7 +8,7 @@ describe('Controller: Producto', function () {
 
   beforeEach(module('myApp'));
 
-  beforeEach(inject(function ($q, $controller, $rootScope, _MensajeFactory_) {
+  beforeEach(inject(function ($q, $controller, $rootScope, _MensajeFactory_) { // MensajeFactory es inyectado por nombre
     scope = $rootScope.$new();
 
     MensajeFactory = _MensajeFactory_;
@@ -69,6 +69,7 @@ describe('Controller: Producto', function () {
 
     productoCtrl = $controller('ProductoController', {
       $scope: scope,
+      $routeParams: {},
       ProductoService: productoService,
       MensajeFactory: MensajeFactory
     });
