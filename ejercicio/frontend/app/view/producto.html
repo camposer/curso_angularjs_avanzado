@@ -2,21 +2,7 @@
 
 <form name="form" class="form-horizontal" ng-submit="guardar(form.$valid)" novalidate>
 
-  <div class="alert alert-success" ng-show="ctrl.mensajes.success.length > 0" ng-cloak>
-    <ul>
-      <li ng-repeat="m in ctrl.mensajes.success">
-        {{m}}
-      </li>
-    </ul>    
-  </div>
-
-  <div class="alert alert-danger" ng-show="ctrl.mensajes.error.length > 0" ng-cloak>
-    <ul>
-      <li ng-repeat="m in ctrl.mensajes.error">
-        {{m}}
-      </li>
-    </ul>    
-  </div>
+  <mensajes success="ctrl.mensajes.success" error="ctrl.mensajes.error"></mensajes>
 
   <div class="form-group">
     <label for="nombre" class="col-sm-2 control-label">Nombre</label>

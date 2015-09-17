@@ -1,0 +1,15 @@
+  <div class="alert alert-success" ng-show="success.length > 0" ng-cloak>
+    <ul>
+      <li ng-repeat="m in success">
+        {{m}}
+      </li>
+    </ul>    
+  </div>
+
+  <div class="alert alert-danger" ng-show="error.length > 0" ng-cloak>
+    <ul>
+      <li ng-repeat="m in error">
+        {{m}}
+      </li>
+    </ul>    
+  </div>
