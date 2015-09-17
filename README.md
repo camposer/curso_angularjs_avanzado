@@ -68,4 +68,6 @@
 		- https://chrome.google.com/webstore/detail/advanced-rest-client/
 	- Firefox
 		- https://addons.mozilla.org/es/firefox/addon/restclient/
+- Validaciones con Angular
+	- https://scotch.io/tutorials/angularjs-form-validation
 
