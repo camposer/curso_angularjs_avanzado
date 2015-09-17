@@ -7,12 +7,8 @@
 
 	function ProductoService($http, BASE_URL) {
 		this.obtenerProductos = function() {
-			// return $http
-			// 	.get(BASE_URL + '/productos');
-			return $http({
-				url: BASE_URL + '/productos',
-				method: 'get'
-			});
+			return $http
+				.get(BASE_URL + '/productos');
 		};
 
 		this.agregarProducto = function(producto) {

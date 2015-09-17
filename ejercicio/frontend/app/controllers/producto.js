@@ -32,6 +32,7 @@ angular.module('myApp')
 				for (var i in resp.data)
 					self.productos[i] = resp.data[i];
 			});
+
 	};
 
 

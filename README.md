@@ -70,4 +70,5 @@
 		- https://addons.mozilla.org/es/firefox/addon/restclient/
 - Validaciones con Angular
 	- https://scotch.io/tutorials/angularjs-form-validation
-
+- AngularJS Promise Callback Not Trigged in JasmineJS Test
+	- http://stackoverflow.com/questions/21616766/angularjs-promise-callback-not-trigged-in-jasminejs-test
