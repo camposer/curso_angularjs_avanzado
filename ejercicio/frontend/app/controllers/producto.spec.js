@@ -1,84 +1,39 @@
 'use strict';
 
-describe('Controller: Producto', function () {
+describe('Controlador de Producto', function () {
   var productoCtrl, 
-    scope, 
-    productoService, 
-    MensajeFactory;
+    scope;
 
   beforeEach(module('myApp'));
 
-  beforeEach(inject(function ($q, $controller, $rootScope, _MensajeFactory_) { // MensajeFactory es inyectado por nombre
+  beforeEach(inject(function ($q, $controller, $rootScope, _MensajeFactory_, _ProductoServiceDummy_) { // MensajeFactory es inyectado por nombre
     scope = $rootScope.$new();
-
-    MensajeFactory = _MensajeFactory_;
-
-    // productoService = {
-    //   obtenerProductos: function() {
-    //     return {
-    //       then: function(callback) {
-    //         callback({
-    //           data: [{
-    //               id: 1,
-    //               nombre: 'uno',
-    //               precio: 100
-    //             },
-    //             {
-    //               id: 2,
-    //               nombre: 'dos',
-    //               precio: 200
-    //             },
-    //                       {
-    //               id: 3,
-    //               nombre: 'tres',
-    //               precio: 300
-    //             }          
-    //           ]
-    //         });
-    //       }
-
-    //     };
-    //   };
-
-    productoService = {
-      obtenerProductos: function() {
-        var deferred = $q.defer();
-        
-        deferred.resolve({
-          data: [{
-              id: 1,
-              nombre: 'uno',
-              precio: 100
-            },
-            {
-              id: 2,
-              nombre: 'dos',
-              precio: 200
-            },
-                      {
-              id: 3,
-              nombre: 'tres',
-              precio: 300
-            }          
-          ]
-        });
-
-        return deferred.promise;
-      }
-    };
 
     productoCtrl = $controller('ProductoController', {
       $scope: scope,
       $routeParams: {},
-      ProductoService: productoService,
-      MensajeFactory: MensajeFactory
+      ProductoService: _ProductoServiceDummy_,
+      MensajeFactory: _MensajeFactory_
     });
 
     $rootScope.$digest(); // Para aplicar cambios sobre el scope!
   }));
 
-  it('init', function () {
+  it('Al iniciar carga los productos', function () {
     expect(productoCtrl.productos.length).toEqual(3);
+  });
+
+  it('Al guardar sin id debería agregar', function () {
+    productoCtrl.producto = {
+      nombre: 'uno',
+      precio: 200
+    };
+
+    scope.guardar(true);
+    
+    expect(productoCtrl.mensajes.error.length).toEqual(0);
+    expect(productoCtrl.mensajes.success.length).toBeGreaterThan(0);
+    expect(productoCtrl.productos.length).toBeGreaterThan(3);
   });
 
 });
