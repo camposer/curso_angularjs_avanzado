@@ -5,17 +5,15 @@ angular
 .module('myApp', [ 'ngRoute' ])
 .config(['$routeProvider', function($routeProvider) {
 
-	// Es importante el orden! (esta ruta antes que la siguiente)
+	// Es importante el orden!
+	// Las rutas más restrictivas deben ir primero
 	$routeProvider.when('/productos/eliminar/:id', {
 	    templateUrl: 'view/producto.html',
 	    controller: 'ProductoController as ctrl'
-  	});
-
-	$routeProvider.when('/productos', {
+  	})
+  	.when('/productos', {
 	    templateUrl: 'view/producto.html',
 	    controller: 'ProductoController as ctrl'
-  	});
-
-
-  	$routeProvider.otherwise({redirectTo: '/productos'});
+  	})
+  	.otherwise({redirectTo: '/productos'});
 }]);
