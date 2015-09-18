@@ -15,3 +15,10 @@ Ejercicio
 
 4.- Implementar las pruebas unitarias de agregar y eliminar de ProductoController. 
 NOTA: Recuerde que para ejecutar: `npm test`
+
+5.- Implementar la pruebas e2e de agregar producto.
+NOTA: Recuerde que para ejecutar:
+```
+npm run update-webdriver
+npm run protractor
+```

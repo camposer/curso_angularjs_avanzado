@@ -46,11 +46,15 @@
 
 		this.modificarProducto = function(producto) {
 			var pos = buscarPos(producto.id);
+
 			if (pos)
 				productos[pos] = producto;
 
-	        return $q(function(resolve) {
-	        	resolve();
+	        return $q(function(resolve, reject) {
+	        	if (pos)
+	        		resolve();
+	        	else
+	        		reject();
 	        });
 		};
 
