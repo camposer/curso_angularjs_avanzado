@@ -41,9 +41,9 @@
   </thead>
   <tbody>
   	<tr ng-repeat="p in ctrl.productos">
-  		<td>{{p.id}}</td>
-  		<td>{{p.nombre}}</td>
-  		<td>{{p.precio}}</td>
+  		<td>{{::p.id}}</td>
+  		<td>{{::p.nombre}}</td>
+  		<td>{{::p.precio}}</td>
   		<td><a href ng-click="ctrl.mostrar(p)">mostrar</a></td>
       <td><a href ng-click="ctrl.eliminar(p.id)"
         onclick="return confirm('Seguro?')">eliminar</a></td>
