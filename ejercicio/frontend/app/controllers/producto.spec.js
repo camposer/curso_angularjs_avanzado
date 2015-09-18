@@ -1,8 +1,7 @@
 'use strict';
 
 describe('Controlador de Producto', function () {
-  var productoCtrl, 
-    scope;
+  var productoCtrl, scope;
 
   beforeEach(module('myApp'));
 
@@ -16,10 +15,10 @@ describe('Controlador de Producto', function () {
       MensajeFactory: _MensajeFactory_
     });
 
-    $rootScope.$digest(); // Para aplicar cambios sobre el scope!
   }));
 
   it('Al iniciar carga los productos', function () {
+    scope.$digest(); 
     expect(productoCtrl.productos.length).toEqual(3);
   });
 
@@ -30,7 +29,8 @@ describe('Controlador de Producto', function () {
     };
 
     scope.guardar(true);
-    
+    scope.$digest(); 
+
     expect(productoCtrl.mensajes.error.length).toEqual(0);
     expect(productoCtrl.mensajes.success.length).toBeGreaterThan(0);
     expect(productoCtrl.productos.length).toBeGreaterThan(3);

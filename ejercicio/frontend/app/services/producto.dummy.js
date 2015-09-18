@@ -3,9 +3,9 @@
 (function() {
 	angular
 		.module('myApp')
-		.service('ProductoServiceDummy', [ ProductoService ]);
+		.service('ProductoServiceDummy', [ '$q', ProductoService ]);
 
-	function ProductoService() {
+	function ProductoService($q) {
 		var productos = [
 			{
 				id: 1,
@@ -26,23 +26,22 @@
 		var contador = 1;
 
 		this.obtenerProductos = function() {
-	        return {
-	        	then: function(callback) {
-	        		callback({
-	        			data: productos
-	        		});
-	        	}
-	        };
+			var deferred = $q.defer();
+
+			deferred.resolve({
+	        	data: productos
+	        });
+
+			return deferred.promise;
 		};
 
 		this.agregarProducto = function(producto) {
 			producto.id = contador++;
 			productos.push(producto);
-	        return {
-	        	then: function(callback) {
-	        		callback();
-	        	}
-	        };
+
+	        return $q(function(resolve, reject) {
+	        	resolve();
+	        });
 		};
 
 		this.modificarProducto = function(producto) {
@@ -50,23 +49,19 @@
 			if (pos)
 				productos[pos] = producto;
 
-	        return {
-	        	then: function(callback) {
-	        		callback();
-	        	}
-	        };
+	        return $q(function(resolve) {
+	        	resolve();
+	        });
 		};
 
 		this.eliminarProducto = function(id) {
-			var pos = buscarPos(producto.id);
+			var pos = buscarPos(id);
 			if (pos)
 				productos.splice(pos, 1);
 
-	        return {
-	        	then: function(callback) {
-	        		callback();
-	        	}
-	        };
+	        return $q(function(resolve) {
+	        	resolve();
+	        });
 		}
 
 		var buscarPos = function(id) {
